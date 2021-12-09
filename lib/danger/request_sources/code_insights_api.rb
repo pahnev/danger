@@ -122,6 +122,7 @@ module Danger
       end
 
       def violation_hash_with_severity(violation, severity)
+        puts "violation_hash_with_severity #{violation}\n severity: #{severity}"
         annotation = {}
         annotation["message"] = violation.message
         annotation["severity"] = severity

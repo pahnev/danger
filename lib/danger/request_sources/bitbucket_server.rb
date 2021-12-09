@@ -177,7 +177,9 @@ module Danger
       end
 
       def find_position_in_diff?(file, line)
+        puts "file #{file} line: #{line}"
         return nil if file.nil? || line.nil?
+        return nil if file.empty?
         puts "finding #{file}\nline:#{line}"
         added_lines(file).include?(line)
       end
