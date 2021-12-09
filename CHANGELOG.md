@@ -10,6 +10,7 @@
 
 ## master
 <!-- Your comment below here -->
+* Fixes issue where some inline comments would never appear in Bitbucket Server.
 <!-- Your comment above here -->
 
 ## 8.5.0
