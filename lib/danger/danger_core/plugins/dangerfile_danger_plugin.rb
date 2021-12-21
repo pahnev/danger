@@ -195,8 +195,10 @@ module Danger
     # @return   [void]
     #
     def import_dangerfile_from_url(url)
+      puts "Importing file from url #{url}"
       raise "`import_dangerfile_from_url` requires a string" unless url.kind_of?(String)
       local_path = download(url)
+      puts "local path: #{local_path}"
       @dangerfile.parse(Pathname.new(local_path))
     end
 
