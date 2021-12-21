@@ -61,8 +61,10 @@ module Danger
       raise "`import_plugin` requires a string" unless path_or_url.kind_of?(String)
 
       if path_or_url.start_with?("http")
+        puts "importing plugin from url: #{path_or_url}"
         import_url(path_or_url)
       else
+        puts "importing plugin from local path: #{path_or_url}"
         import_local(path_or_url)
       end
     end
@@ -224,6 +226,7 @@ module Danger
       content = @http_client.get(path_or_url)
 
       path = File.join(Dir.mktmpdir, "temporary_danger.rb")
+      puts "content body: #{content.body}"
       File.write(path, content.body)
       return path
     end
@@ -236,6 +239,8 @@ module Danger
     # @return [void]
     def import_url(url)
       path = download(url)
+      puts "import plugin: #{path}"
+
       import_local(path)
     end
 
