@@ -143,6 +143,8 @@ module Danger
       end
 
       def inline_violations_group(warnings: [], errors: [], messages: [], markdowns: [])
+        puts "warnings: #{warnings}"
+
         cmp = proc do |a, b|
           next -1 unless a.file && a.line
           next 1 unless b.file && b.line
