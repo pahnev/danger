@@ -180,6 +180,7 @@ module Danger
       def find_position_in_diff?(file, line)
         return nil if file.nil? || line.nil?
         return nil if file.empty?
+        puts "find_position_in_diff line: #{line}"
         added_lines(file).include?(line)
       end
 
@@ -188,6 +189,7 @@ module Danger
       end
 
       def added_lines(file)
+        puts "added lines: #{file}"
         @added_lines ||= {}
         @added_lines[file] ||= begin
           file_diff(file)[:hunks].map do |hunk|
