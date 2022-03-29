@@ -185,14 +185,17 @@ module Danger
       end
 
       def file_diff(file)
+        puts "file_diff: #{file}"
         self.pr_diff[:diffs].find{|diff| diff[:destination] && diff[:destination][:toString] == file } || {'hunks' => []}
       end
 
       def added_lines(file)
-        puts "added lines: #{file}"
+        puts "added lines file: #{file}"
         @added_lines ||= {}
+        puts "added lines: #{@added_lines}"
+
         @added_lines[file] ||= begin
-          file_diff(file)[:hunks].map do |hunk|
+          file_diff(file)[:hunks].map! do |hunk|
             hunk[:segments].select{|segment| segment[:type] == 'ADDED' }.map do |segment|
               segment[:lines].map do |line|
                 line[:destination]
