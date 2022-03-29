@@ -195,7 +195,7 @@ module Danger
         puts "added lines: #{@added_lines}"
 
         @added_lines[file] ||= begin
-          hunks = file_diff(file)[:hunks]
+          hunks = file_diff(file)[:hunks] || []
           return if hunks.nil?
           hunks.map do |hunk|
             hunk[:segments].select{|segment| segment[:type] == 'ADDED' }.map do |segment|
