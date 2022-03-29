@@ -45,6 +45,7 @@ module Danger
 
       def fetch_pr_diff
         uri = URI("#{pr_api_endpoint}/diff?withComments=false")
+        puts "fetching pr diff from: #{uri}"
         fetch_json(uri)
       end
 
