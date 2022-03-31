@@ -1,123 +1,48 @@
+HTTP/1.1 200 OK
+
 {
-    "fromHash": "9387e25053490f1b7940aeda445333e8f99c5c8a",
-    "toHash": "49617cbe6493f6cfc0c91284554fb1e171a57f75",
+    "fromHash": "e210151df4388c0bde443707930885ada86493df",
+    "toHash": "3fc9bef368821124816aa41df3f328a3b62ff6a4",
     "contextLines": 10,
     "whitespace": "SHOW",
     "diffs": [
         {
             "source": {
                 "components": [
-                    "FreedomeSDK",
-                    "FreedomeSDK",
-                    "impl",
-                    "Engine",
-                    "CLPEngine.m"
+                    "Gemfile"
                 ],
-                "parent": "FreedomeSDK/FreedomeSDK/impl/Engine",
-                "name": "CLPEngine.m",
-                "extension": "m",
-                "toString": "FreedomeSDK/FreedomeSDK/impl/Engine/CLPEngine.m"
+                "parent": "",
+                "name": "Gemfile",
+                "toString": "Gemfile"
             },
             "destination": {
                 "components": [
-                    "FreedomeSDK",
-                    "FreedomeSDK",
-                    "impl",
-                    "Engine",
-                    "CLPEngine.m"
+                    "Gemfile"
                 ],
-                "parent": "FreedomeSDK/FreedomeSDK/impl/Engine",
-                "name": "CLPEngine.m",
-                "extension": "m",
-                "toString": "FreedomeSDK/FreedomeSDK/impl/Engine/CLPEngine.m"
+                "parent": "",
+                "name": "Gemfile",
+                "toString": "Gemfile"
             },
             "hunks": [
                 {
-                    "context": "static NSTimeInterval const CLPProtectionLogCacheRetainedTime = 3 * 24 * 3600; /",
-                    "sourceLine": 2431,
-                    "sourceSpan": 22,
-                    "destinationLine": 2431,
-                    "destinationSpan": 26,
+                    "sourceLine": 1,
+                    "sourceSpan": 4,
+                    "destinationLine": 1,
+                    "destinationSpan": 5,
                     "segments": [
                         {
                             "type": "CONTEXT",
                             "lines": [
                                 {
-                                    "source": 2431,
-                                    "destination": 2431,
-                                    "line": "        ReleaseError(@\"Notification should contain CLPAPIRequest\");",
+                                    "source": 1,
+                                    "destination": 1,
+                                    "line": "source 'https://rubygems.org'",
                                     "truncated": false
                                 },
                                 {
-                                    "source": 2432,
-                                    "destination": 2432,
-                                    "line": "        return;",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2433,
-                                    "destination": 2433,
-                                    "line": "    }",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2434,
-                                    "destination": 2434,
+                                    "source": 2,
+                                    "destination": 2,
                                     "line": "",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2435,
-                                    "destination": 2435,
-                                    "line": "    CLPAPIRequest *request = (CLPAPIRequest *)notification.object;",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2436,
-                                    "destination": 2436,
-                                    "line": "    if (request.isErrorHandled &amp;&amp; request.isCancelled) {",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2437,
-                                    "destination": 2437,
-                                    "line": "        DLog(@\"Error is already handled for request, wont show any message for that\");",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2438,
-                                    "destination": 2438,
-                                    "line": "        return;",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2439,
-                                    "destination": 2439,
-                                    "line": "    }",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2440,
-                                    "destination": 2440,
-                                    "line": "",
-                                    "truncated": false
-                                }
-                            ],
-                            "truncated": false
-                        },
-                        {
-                            "type": "REMOVED",
-                            "lines": [
-                                {
-                                    "source": 2441,
-                                    "destination": 2441,
-                                    "line": "    if (request.lastError &amp;&amp; IS_API_ERROR(request.lastError.domain)) {",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2442,
-                                    "destination": 2441,
-                                    "line": "        [self.upstream trackErrorEvent:request.lastError message:request.lastError.description category:CLPUpstreamErrorCategoryNetwork];",
                                     "truncated": false
                                 }
                             ],
@@ -127,39 +52,9 @@
                             "type": "ADDED",
                             "lines": [
                                 {
-                                    "source": 2443,
-                                    "destination": 2441,
-                                    "line": "    if (request.lastError &amp;&amp;",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2443,
-                                    "destination": 2442,
-                                    "line": "        request.lastError.code != ERROR_CODE_USER_CANCELLED_API_REQUEST) {",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2443,
-                                    "destination": 2443,
+                                    "source": 3,
+                                    "destination": 3,
                                     "line": "",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2443,
-                                    "destination": 2444,
-                                    "line": "        [self.upstream trackErrorEvent:request.lastError",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2443,
-                                    "destination": 2445,
-                                    "line": "                               message:[self upstreamErrorMessageFrom:request.lastError]",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2443,
-                                    "destination": 2446,
-                                    "line": "                              category:CLPUpstreamErrorCategoryNetwork];",
                                     "truncated": false
                                 }
                             ],
@@ -169,63 +64,15 @@
                             "type": "CONTEXT",
                             "lines": [
                                 {
-                                    "source": 2443,
-                                    "destination": 2447,
-                                    "line": "    }",
+                                    "source": 3,
+                                    "destination": 4,
+                                    "line": "# Specify your gem's dependencies in batman-rails.gemspec",
                                     "truncated": false
                                 },
                                 {
-                                    "source": 2444,
-                                    "destination": 2448,
-                                    "line": "",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2445,
-                                    "destination": 2449,
-                                    "line": "",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2446,
-                                    "destination": 2450,
-                                    "line": "    BOOL isCLPAPIError = [request.lastError.domain isEqualToString:ERROR_DOMAIN_API_REQUEST] &amp;&amp; request.lastError.code == ERROR_CODE_SERVER_RESULT_FAIL;",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2447,
-                                    "destination": 2451,
-                                    "line": "    if (!request.lastError || !isCLPAPIError) {",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2448,
-                                    "destination": 2452,
-                                    "line": "        return;",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2449,
-                                    "destination": 2453,
-                                    "line": "    }",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2450,
-                                    "destination": 2454,
-                                    "line": "",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2451,
-                                    "destination": 2455,
-                                    "line": "    NSDictionary *userInfo = request.lastError.userInfo;",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2452,
-                                    "destination": 2456,
-                                    "line": "    NSString *title = [userInfo objectForKey:CLPAPIErrorServerResultReasonTitle];",
+                                    "source": 4,
+                                    "destination": 5,
+                                    "line": "gemspec",
                                     "truncated": false
                                 }
                             ],
@@ -233,75 +80,65 @@
                         }
                     ],
                     "truncated": false
-                },
+                }
+            ],
+            "truncated": false
+        },
+        {
+            "source": {
+                "components": [
+                    "lib",
+                    "batman-rails",
+                    "version.rb"
+                ],
+                "parent": "lib/batman-rails",
+                "name": "version.rb",
+                "extension": "rb",
+                "toString": "lib/batman-rails/version.rb"
+            },
+            "destination": {
+                "components": [
+                    "lib",
+                    "batman-rails",
+                    "version.rb"
+                ],
+                "parent": "lib/batman-rails",
+                "name": "version.rb",
+                "extension": "rb",
+                "toString": "lib/batman-rails/version.rb"
+            },
+            "hunks": [
                 {
-                    "context": "static NSTimeInterval const CLPProtectionLogCacheRetainedTime = 3 * 24 * 3600; /",
-                    "sourceLine": 2473,
-                    "sourceSpan": 20,
-                    "destinationLine": 2477,
-                    "destinationSpan": 38,
+                    "sourceLine": 1,
+                    "sourceSpan": 6,
+                    "destinationLine": 1,
+                    "destinationSpan": 7,
                     "segments": [
                         {
                             "type": "CONTEXT",
                             "lines": [
                                 {
-                                    "source": 2473,
-                                    "destination": 2477,
-                                    "line": "    if (isUpdateRequired) {",
+                                    "source": 1,
+                                    "destination": 1,
+                                    "line": "module Batman",
                                     "truncated": false
                                 },
                                 {
-                                    "source": 2474,
-                                    "destination": 2478,
-                                    "line": "        [clientMessage setUpgradeRequired:YES];",
+                                    "source": 2,
+                                    "destination": 2,
+                                    "line": "  module Rails",
                                     "truncated": false
                                 },
                                 {
-                                    "source": 2475,
-                                    "destination": 2479,
-                                    "line": "    }",
+                                    "source": 3,
+                                    "destination": 3,
+                                    "line": "    VERSION = \"0.16.1\"",
                                     "truncated": false
                                 },
                                 {
-                                    "source": 2476,
-                                    "destination": 2480,
-                                    "line": "    for (id &lt;CLPEngineObserver&gt; observer in [self.observerHelper listeners]) {",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2477,
-                                    "destination": 2481,
-                                    "line": "        if ([observer respondsToSelector:@selector(clientReceivedErrorMessage:onAcknowledge:)]) {",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2478,
-                                    "destination": 2482,
-                                    "line": "            [observer clientReceivedErrorMessage:clientMessage onAcknowledge:^{}];",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2479,
-                                    "destination": 2483,
-                                    "line": "        }",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2480,
-                                    "destination": 2484,
-                                    "line": "    }",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2481,
-                                    "destination": 2485,
-                                    "line": "}",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2482,
-                                    "destination": 2486,
-                                    "line": "",
+                                    "source": 4,
+                                    "destination": 4,
+                                    "line": "    BATMAN_VERSION = \"0.16.0\"",
                                     "truncated": false
                                 }
                             ],
@@ -311,110 +148,90 @@
                             "type": "ADDED",
                             "lines": [
                                 {
-                                    "source": 2483,
-                                    "destination": 2487,
-                                    "line": "- (NSString *)upstreamErrorMessageFrom:(NSError *)error {",
+                                    "source": 5,
+                                    "destination": 5,
+                                    "line": "    FOO = \"bar\"",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "CONTEXT",
+                            "lines": [
+                                {
+                                    "source": 5,
+                                    "destination": 6,
+                                    "line": "  end",
                                     "truncated": false
                                 },
                                 {
-                                    "source": 2483,
-                                    "destination": 2488,
-                                    "line": "    NSMutableString *message = [[NSMutableString alloc] init];",
+                                    "source": 6,
+                                    "destination": 7,
+                                    "line": "end",
                                     "truncated": false
-                                },
+                                }
+                            ],
+                            "truncated": false
+                        }
+                    ],
+                    "truncated": false
+                }
+            ],
+            "truncated": false
+        },
+        {
+            "source": {
+                "components": [
+                    "lib",
+                    "templates",
+                    "batman",
+                    "html",
+                    "index.html"
+                ],
+                "parent": "lib/templates/batman/html",
+                "name": "index.html",
+                "extension": "html",
+                "toString": "lib/templates/batman/html/index.html"
+            },
+            "destination": {
+                "components": [
+                    "lib",
+                    "templates",
+                    "batman",
+                    "html",
+                    "index.html"
+                ],
+                "parent": "lib/templates/batman/html",
+                "name": "index.html",
+                "extension": "html",
+                "toString": "lib/templates/batman/html/index.html"
+            },
+            "hunks": [
+                {
+                    "sourceLine": 1,
+                    "sourceSpan": 2,
+                    "destinationLine": 1,
+                    "destinationSpan": 3,
+                    "segments": [
+                        {
+                            "type": "CONTEXT",
+                            "lines": [
                                 {
-                                    "source": 2483,
-                                    "destination": 2489,
-                                    "line": "    [message appendFormat:@\"Error Domain=%@ Code=%ld \", error.domain, (long)error.code];",
+                                    "source": 1,
+                                    "destination": 1,
+                                    "line": "<h1><%= plural_name.camelize %>Controller#index</h1>",
                                     "truncated": false
-                                },
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "ADDED",
+                            "lines": [
                                 {
-                                    "source": 2483,
-                                    "destination": 2490,
-                                    "line": "",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2491,
-                                    "line": "    if (error.userInfo) {",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2492,
-                                    "line": "        NSURL *url = [error.userInfo valueForKey:NSURLErrorFailingURLErrorKey];",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2493,
-                                    "line": "        if (url) {",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2494,
-                                    "line": "            [message appendFormat:@\"URL=%@ \", url];",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2495,
-                                    "line": "        }",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2496,
-                                    "line": "        NSError *underLyingError = [error.userInfo valueForKey:NSUnderlyingErrorKey];",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2497,
-                                    "line": "        if (underLyingError) {",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2498,
-                                    "line": "            [message appendFormat:@\"UnderlyingErrorDomain=%@ Code=%ld\", underLyingError.domain, (long)underLyingError.code];",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2499,
-                                    "line": "        }",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2500,
-                                    "line": "    }",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2501,
-                                    "line": "",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2502,
-                                    "line": "    return message;",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2503,
-                                    "line": "}",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2483,
-                                    "destination": 2504,
+                                    "source": 2,
+                                    "destination": 2,
                                     "line": "",
                                     "truncated": false
                                 }
@@ -425,63 +242,239 @@
                             "type": "CONTEXT",
                             "lines": [
                                 {
-                                    "source": 2483,
-                                    "destination": 2505,
-                                    "line": "- (void)delegateMOTDIfNeeded {",
+                                    "source": 2,
+                                    "destination": 3,
+                                    "line": "<p>Find me in html/<%= plural_name.underscore %>/index.html</p>",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        }
+                    ],
+                    "truncated": false
+                }
+            ],
+            "truncated": false
+        },
+        {
+            "source": {
+                "components": [
+                    "lib",
+                    "templates",
+                    "batman",
+                    "main_controller.coffee"
+                ],
+                "parent": "lib/templates/batman",
+                "name": "main_controller.coffee",
+                "extension": "coffee",
+                "toString": "lib/templates/batman/main_controller.coffee"
+            },
+            "destination": {
+                "components": [
+                    "lib",
+                    "templates",
+                    "batman",
+                    "main_controller.coffee"
+                ],
+                "parent": "lib/templates/batman",
+                "name": "main_controller.coffee",
+                "extension": "coffee",
+                "toString": "lib/templates/batman/main_controller.coffee"
+            },
+            "hunks": [
+                {
+                    "sourceLine": 1,
+                    "sourceSpan": 9,
+                    "destinationLine": 1,
+                    "destinationSpan": 10,
+                    "segments": [
+                        {
+                            "type": "CONTEXT",
+                            "lines": [
+                                {
+                                    "source": 1,
+                                    "destination": 1,
+                                    "line": "class <%= js_application_name %>.MainController extends <%= js_application_name %>.ApplicationController",
                                     "truncated": false
                                 },
                                 {
-                                    "source": 2484,
-                                    "destination": 2506,
-                                    "line": "    CLPMessageOfTheDay *messageOfTheDay = [self clusterConfig].messageOfTheDay;",
+                                    "source": 2,
+                                    "destination": 2,
+                                    "line": "  routingKey: 'main'",
                                     "truncated": false
                                 },
                                 {
-                                    "source": 2485,
-                                    "destination": 2507,
-                                    "line": "    if (!messageOfTheDay) {",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2486,
-                                    "destination": 2508,
-                                    "line": "        return;",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2487,
-                                    "destination": 2509,
-                                    "line": "    }",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2488,
-                                    "destination": 2510,
-                                    "line": "    if ([self.preferences isMessageOfTheDayShown:messageOfTheDay]) {",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2489,
-                                    "destination": 2511,
-                                    "line": "        DLog(@\"MOTD with ID %@, has already been shown.\", messageOfTheDay.motdId);",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2490,
-                                    "destination": 2512,
-                                    "line": "        return;",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2491,
-                                    "destination": 2513,
-                                    "line": "    }",
-                                    "truncated": false
-                                },
-                                {
-                                    "source": 2492,
-                                    "destination": 2514,
+                                    "source": 3,
+                                    "destination": 3,
                                     "line": "",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 4,
+                                    "destination": 4,
+                                    "line": "  index: (params) ->",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 5,
+                                    "destination": 5,
+                                    "line": "    @set 'firstName', 'Bruce'",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 6,
+                                    "destination": 6,
+                                    "line": "    @set 'lastName', 'Wayne'",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "ADDED",
+                            "lines": [
+                                {
+                                    "source": 7,
+                                    "destination": 7,
+                                    "line": "    @set 'nickname', 'Batman'",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "CONTEXT",
+                            "lines": [
+                                {
+                                    "source": 7,
+                                    "destination": 8,
+                                    "line": "",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 8,
+                                    "destination": 9,
+                                    "line": "  @accessor 'fullName', ->",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 9,
+                                    "destination": 10,
+                                    "line": "    \"#{@get('firstName')} #{@get('lastName')}\"",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        }
+                    ],
+                    "truncated": false
+                }
+            ],
+            "truncated": false
+        },
+        {
+            "source": {
+                "components": [
+                    "test",
+                    "fixtures",
+                    "application.js.coffee"
+                ],
+                "parent": "test/fixtures",
+                "name": "application.js.coffee",
+                "extension": "coffee",
+                "toString": "test/fixtures/application.js.coffee"
+            },
+            "destination": {
+                "components": [
+                    "test",
+                    "fixtures",
+                    "application.js.coffee"
+                ],
+                "parent": "test/fixtures",
+                "name": "application.js.coffee",
+                "extension": "coffee",
+                "toString": "test/fixtures/application.js.coffee"
+            },
+            "hunks": [
+                {
+                    "sourceLine": 1,
+                    "sourceSpan": 9,
+                    "destinationLine": 1,
+                    "destinationSpan": 10,
+                    "segments": [
+                        {
+                            "type": "CONTEXT",
+                            "lines": [
+                                {
+                                    "source": 1,
+                                    "destination": 1,
+                                    "line": "# This is a manifest file that'll be compiled into including all the files listed below.",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 2,
+                                    "destination": 2,
+                                    "line": "# Add new JavaScript/Coffee code in separate files in this directory and they'll automatically",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 3,
+                                    "destination": 3,
+                                    "line": "# be included in the compiled file accessible from http://example.com/assets/application.js",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 4,
+                                    "destination": 4,
+                                    "line": "# It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 5,
+                                    "destination": 5,
+                                    "line": "# the compiled file.",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 6,
+                                    "destination": 6,
+                                    "line": "#",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "ADDED",
+                            "lines": [
+                                {
+                                    "source": 7,
+                                    "destination": 7,
+                                    "line": "#",
+                                    "truncated": false
+                                }
+                            ],
+                            "truncated": false
+                        },
+                        {
+                            "type": "CONTEXT",
+                            "lines": [
+                                {
+                                    "source": 7,
+                                    "destination": 8,
+                                    "line": "#= require jquery",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 8,
+                                    "destination": 9,
+                                    "line": "#= require jquery_ujs",
+                                    "truncated": false
+                                },
+                                {
+                                    "source": 9,
+                                    "destination": 10,
+                                    "line": "#= require_tree .",
                                     "truncated": false
                                 }
                             ],
@@ -493,6 +486,5 @@
             ],
             "truncated": false
         }
-    ],
-    "truncated": false
+    ]
 }

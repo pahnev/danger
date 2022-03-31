@@ -9,7 +9,7 @@ module Danger
   module RequestSources
     class BitbucketServer < RequestSource
       include Danger::Helpers::CommentsHelper
-      attr_accessor :pr_json
+      attr_accessor :pr_json, :include_out_of_range_messages
 
       def self.env_vars
         [
@@ -25,12 +25,14 @@ module Danger
           "DANGER_BITBUCKETSERVER_CODE_INSIGHTS_REPORT_TITLE",
           "DANGER_BITBUCKETSERVER_CODE_INSIGHTS_REPORT_DESCRIPTION",
           "DANGER_BITBUCKETSERVER_CODE_INSIGHTS_REPORT_LOGO_URL",
-          "DANGER_BITBUCKETSERVER_VERIFY_SSL"
+          "DANGER_BITBUCKETSERVER_VERIFY_SSL",
+          "DANGER_INCLUDE_OUT_OF_RANGE_MESSAGES"
         ]
       end
 
       def initialize(ci_source, environment)
         self.ci_source = ci_source
+        self.include_out_of_range_messages = environment["DANGER_INCLUDE_OUT_OF_RANGE_MESSAGES"] == 'true'
 
         project, slug = ci_source.repo_slug.split("/")
         @api = BitbucketServerAPI.new(project, slug, ci_source.pull_request_id, environment)
@@ -138,14 +140,22 @@ module Danger
       end
 
       def main_violations_group(warnings: [], errors: [], messages: [], markdowns: [])
-        in_diff = proc { |a| find_position_in_diff?(a.file, a.line) }
-
-        {
-          warnings: warnings.reject(&in_diff),
-          errors: errors.reject(&in_diff),
-          messages: messages.reject(&in_diff),
-          markdowns: markdowns.reject(&in_diff)
-        }
+        if include_out_of_range_messages
+          in_diff = proc { |a| find_position_in_diff?(a.file, a.line) }
+          {
+            warnings: warnings.reject(&in_diff),
+            errors: errors.reject(&in_diff),
+            messages: messages.reject(&in_diff),
+            markdowns: markdowns.reject(&in_diff)
+          }
+         else 
+          {
+            warnings: warnings.reject(&:inline?),
+            errors: errors.reject(&:inline?),
+            messages: messages.reject(&:inline?),
+            markdowns: markdowns.reject(&:inline?)
+          }
+        end
       end
 
       def inline_violations_group(warnings: [], errors: [], messages: [], markdowns: [])
@@ -181,12 +191,15 @@ module Danger
         return nil if file.nil? || line.nil?
         return nil if file.empty?
         puts "find_position_in_diff line: #{line}"
-        added_lines(file).include?(line)
+        lines = added_lines(file)
+        puts "lines line: #{lines}"
+
+        lines.include?(line)
       end
 
       def file_diff(file)
         puts "file_diff: #{file}"
-        self.pr_diff[:diffs].find{|diff| diff[:destination] && diff[:destination][:toString] == file } || {'hunks' => []}
+        self.pr_diff[:diffs].find{|diff| diff[:destination] && diff[:destination][:toString] == file } || {:hunks => []}
       end
 
       def added_lines(file)
@@ -195,8 +208,7 @@ module Danger
         puts "added lines: #{@added_lines}"
 
         @added_lines[file] ||= begin
-          hunks = file_diff(file)[:hunks] || []
-          return if hunks.nil?
+          hunks = file_diff(file)[:hunks]
           hunks.map do |hunk|
             hunk[:segments].select{|segment| segment[:type] == 'ADDED' }.map do |segment|
               segment[:lines].map do |line|
